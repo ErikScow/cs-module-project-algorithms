@@ -3,9 +3,28 @@ Input: a List of integers as well as an integer `k` representing the size of the
 Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
-    # Your code here
 
-    pass
+    new_arr = []
+
+    for index, item in enumerate(nums):
+
+        if (index + k) > len(nums):
+                continue
+
+        comparison_arr = []
+
+        for i in range(index, index + k):
+            comparison_arr.append(nums[i])
+        
+        highest = comparison_arr[0]
+        for i in comparison_arr:
+            if i > highest:
+                highest = i
+        new_arr.append(highest)
+
+    return new_arr
+
+
 
 
 if __name__ == '__main__':
